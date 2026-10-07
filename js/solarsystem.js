@@ -147,10 +147,15 @@
     // why the panel used to stay on screen (just unclickable) after close.
     document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
     syncDock(null);
-    const openedId = currentPanel;
     currentPanel = null;
-    if (openedId && window.ShatterEffect && planetEls[openedId]) {
-      window.ShatterEffect.reform(planetEls[openedId].el);
+    // Reform every shattered planet, not just the last one opened —
+    // switching sections via the dock/arrows/topbar while a panel is
+    // open shatters several planets in a row.
+    if (window.ShatterEffect) {
+      for (const id in planetEls) {
+        const el = planetEls[id].el;
+        if (el.classList.contains('shattering')) window.ShatterEffect.reform(el);
+      }
     }
   }
 

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reet Mishra &middot; Portfolio</title>
+<meta name="description" content="Reet Mishra: CS (AI/ML) student, builder of systems end-to-end. Portfolio.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ BOOT / INTRO OVERLAY ============ -->
+<div id="boot-overlay" aria-hidden="false">
+  <pre id="boot-ascii" class="ascii-art boot-hidden" aria-hidden="true"></pre>
+  <div id="boot-log" class="boot-log mono boot-hidden" role="status" aria-live="polite"></div>
+  <button id="boot-skip" class="boot-skip mono">[ enter system ]</button>
+</div>
+
+<!-- ============ BACKGROUND LAYERS ============ -->
+<canvas id="starfield" aria-hidden="true"></canvas>
+<canvas id="cursor-trail" aria-hidden="true"></canvas>
+<canvas id="shatter-canvas" aria-hidden="true"></canvas>
+
+<!-- ============ TOP BAR ============ -->
+<header id="topbar">
+  <a href="#" id="home-link" class="brand mono" data-action="home">reet<span class="brand-dot">.</span></a>
+  <nav id="dock" class="dock mono" aria-label="Section navigation"></nav>
+  <a id="topbar-resume" class="resume-pill mono" data-planet="resume" href="#">résumé ⇲</a>
+</header>
+
+<!-- ============ MAIN STAGE ============ -->
+<main id="stage">
+  <section id="hero">
+    <pre class="ascii-art ascii-hero" aria-hidden="true">
+     .  *   .       .    *        .   *    .
+  *    ╭─────────────────────────╮      .
+      ─┤   R  E  E  T   M I S H R A ├─       *
+   .   ╰─────────────────────────╯    .
+        .     *      .    *     .
+    </pre>
+    <h1 class="hero-title">Reet Mishra</h1>
+    <p class="hero-sub mono">B.Tech CS (AI/ML) &middot; VIT-AP &middot; Class of 2027</p>
+    <p class="hero-tagline">I like building things I can poke at. A movie recommender that argues with
+      itself, an RL agent learning not to walk into walls, and this summer, a detour into neuroscience:
+      finding signal in noisy brain recordings with Neuromatch Academy.</p>
+    <p class="hero-hint mono">◂ click a planet to explore its orbit ▸</p>
+  </section>
+
+  <div id="solar-system" role="group" aria-label="Interactive solar system navigation">
+    <div id="sun" class="sun" data-action="home" tabindex="0" role="button" aria-label="Return to home">
+      <span class="sun-core"></span>
+      <span class="sun-glow"></span>
+      <span class="sun-label mono">home</span>
+    </div>
+    <!-- orbits + planets injected by js/solarsystem.js -->
+  </div>
+</main>
+
+<!-- ============ CONTENT PANELS (templates, filled & toggled by js) ============ -->
+<div id="panel-root" aria-hidden="true">
+  <div id="panel-backdrop"></div>
+
+  <article class="panel" id="panel-about" data-color="var(--c-about)">
+    <button class="panel-close mono" data-action="close" aria-label="Close panel">× close</button>
+    <pre class="ascii-art ascii-divider" aria-hidden="true">┄┄┄┄┄┄┄┄ · ABOUT · ┄┄┄┄┄┄┄┄</pre>
+    <h2>About</h2>
+    <p class="panel-lede">I'm based in Hyderabad, and most of what I do sits somewhere between machine
+      learning, full-stack development, and design. I build things mostly as a way of thinking
+      through them, curious about how something works down to the wiring, not just that it works. Outside
+      of code, it's design, community leadership, journaling, and sketching. Right now I'm looking for
+      internships in ML/AI, data science, frontend, or design.</p>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3 class="mono">Programming</h3>
+        <ul><li>Java</li><li>Python</li><li>SQL</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3 class="mono">AI / ML</h3>
+        <ul><li>ML</li><li>NLP</li><li>RL</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3 class="mono">Tools</h3>
+        <ul><li>Git</li><li>REST APIs</li><li>MNE-Python</li><li>Figma</li><li>Canva</li></ul>
+      </div>
+    </div>
+
+    <h3 class="mono section-label">Languages</h3>
+    <div class="lang-row mono">
+      <span>English <em>fluent</em></span>
+      <span>Hindi <em>fluent</em></span>
+      <span>Korean <em>intermediate</em></span>
+      <span>German <em>elementary</em></span>
+    </div>
+
+    <h3 class="mono section-label">Certificates &amp; Awards</h3>
+    <div class="cert-gallery">
+      <a class="cert-card" href="assets/certs/kaggle.png" target="_blank" rel="noopener">
+        <img src="assets/certs/kaggle.png" alt="Kaggle Contest certificate of appreciation" loading="lazy">
+        <span>Kaggle Contest &middot; 3rd Place</span>
+      </a>
+      <a class="cert-card" href="assets/certs/web-dev.png" target="_blank" rel="noopener">
+        <img src="assets/certs/web-dev.png" alt="Udemy Full Stack Web Development Bootcamp certificate" loading="lazy">
+        <span>Udemy &middot; Full Stack Web Dev Bootcamp</span>
+      </a>
+      <a class="cert-card" href="assets/certs/hci.png" target="_blank" rel="noopener">
+        <img src="assets/certs/hci.png" alt="NPTEL Human Computer Interaction certificate" loading="lazy">
+        <span>NPTEL &middot; HCI (Elite, Gold &middot; top 5%)</span>
+      </a>
+      <a class="cert-card" href="assets/certs/neuro.png" target="_blank" rel="noopener">
+        <img src="assets/certs/neuro.png" alt="NPTEL Classics in Neuroscience certificate" loading="lazy">
+        <span>NPTEL &middot; Classics in Neuroscience (Elite, Silver)</span>
+      </a>
+      <a class="cert-card" href="assets/certs/thinking_machines.png" target="_blank" rel="noopener">
+        <img src="assets/certs/thinking_machines.png" alt="LinkedIn Learning AI Foundations: Thinking Machines certificate" loading="lazy">
+        <span>AI Foundations: Thinking Machines</span>
+      </a>
+      <a class="cert-card" href="assets/certs/uiux.png" target="_blank" rel="noopener">
+        <img src="assets/certs/uiux.png" alt="UI/UX Bootcamp certificate of participation" loading="lazy">
+        <span>UI/UX Bootcamp</span>
+      </a>
+    </div>
+  </article>
+
+  <article class="panel" id="panel-education" data-color="var(--c-education)">
+    <button class="panel-close mono" data-action="close" aria-label="Close panel">× close</button>
+    <pre class="ascii-art ascii-divider" aria-hidden="true">┄┄┄┄┄┄ · EDUCATION · ┄┄┄┄┄┄</pre>
+    <h2>Education</h2>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3><img class="org-logo" src="assets/logos/vit.png" alt="" aria-hidden="true">VIT-AP University <span class="mono project-tag">B.Tech, Computer Science Engineering (AI/ML)</span></h3>
+        <span class="mono project-stack">2023 &ndash; 2027</span>
+      </div>
+      <ul>
+        <li>CGPA 8.5 / 10 &middot; Coursework: Machine Learning, Data Structures &amp; Algorithms,
+          Object-Oriented Programming, Operating Systems, Reinforcement Learning</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3><img class="org-logo" src="assets/logos/fiitjee.png" alt="" aria-hidden="true">FIITJEE <span class="mono project-tag">Class XII &middot; Mathematics, Physics, Chemistry</span></h3>
+        <span class="mono project-stack">2020 &ndash; 2022</span>
+      </div>
+      <ul>
+        <li>Scored 93%</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3><img class="org-logo" src="assets/logos/vista.png" alt="" aria-hidden="true">Vista International School <span class="mono project-tag">Through Class X</span></h3>
+        <span class="mono project-stack">2016 &ndash; 2020</span>
+      </div>
+      <ul>
+        <li>Scored 93% in Class X</li>
+        <li>Voted/selected as Deputy Head Girl (Aug 2017 &ndash; Aug 2018), then Head Girl the following year
+          (Aug 2018 &ndash; Aug 2019), serving both roles back to back</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel" id="panel-projects" data-color="var(--c-projects)">
+    <button class="panel-close mono" data-action="close" aria-label="Close panel">× close</button>
+    <pre class="ascii-art ascii-divider" aria-hidden="true">┄┄┄┄┄┄┄ · PROJECTS · ┄┄┄┄┄┄┄</pre>
+    <h2>Projects</h2>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3>Recomme To Me <span class="mono project-tag">Movie Recommender System</span></h3>
+        <span class="mono project-stack">Python &middot; Flask &middot; scikit-learn &middot; JS</span>
+      </div>
+      <ul>
+        <li>Implemented 5 recommendation algorithms from scratch (item-based CF, TF-IDF content-based, SGD
+          matrix factorization, hybrid, Bayesian popularity) behind a shared interface, served through 12
+          Flask REST endpoints</li>
+        <li>Built an evaluation harness on MovieLens with a leakage-free per-user temporal split, scoring
+          RMSE, Precision@10, recall, coverage, diversity, and novelty; tuned the hybrid's blend weight with
+          a parameter sweep</li>
+        <li>Vanilla JS frontend compares every algorithm's picks for any movie side by side; verified
+          personalization quantitatively (cross-user top-10 overlap of 0.52 for popularity vs 0.03 for item
+          CF)</li>
+        <li><span class="badge mono">in progress</span> automated pytest suite over the Flask endpoints
+          (schema, input validation, edge cases), run on each push via GitHub Actions</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3>learn-to-RL <span class="mono project-tag">Interactive RL Visualizer</span></h3>
+        <span class="mono project-stack">Vanilla JS &middot; Canvas</span>
+      </div>
+      <ul>
+        <li>Browser-based playground visualizing RL algorithms (Q-learning live; SARSA, DQN, policy
+          gradient planned) with zero install and zero dependencies</li>
+        <li>Live Q-table as directional arrows on a 7&times;7 grid with real-time reward charts and
+          &epsilon;-decay tracking; full Q-learning update rule in ~200 lines of vanilla JS, with an
+          interactive code walkthrough</li>
+      </ul>
+      <div class="project-links">
+        <a class="project-link mono" href="https://ciiphersiren.github.io/learn-to-RL/q-learning/rl-playground.html" target="_blank" rel="noopener">try the playground ↗</a>
+        <a class="project-link mono" href="https://ciiphersiren.github.io/learn-to-RL/q-learning/rl-teach.html" target="_blank" rel="noopener">read the walkthrough ↗</a>
+        <a class="project-link mono" href="https://github.com/ciiphersiren/learn-to-RL" target="_blank" rel="noopener">view on GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3>StudEx <span class="mono project-tag">Full-Stack Web Application</span></h3>
+        <span class="mono project-stack">Node &middot; Express &middot; PostgreSQL</span>
+      </div>
+      <ul>
+        <li>Roll-number lookup returning a student's per-subject marks alongside a rule-based remark
+          derived from those scores; unrecognised roll numbers return a recheck prompt rather than an
+          error</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel" id="panel-research" data-color="var(--c-research)">
+    <button class="panel-close mono" data-action="close" aria-label="Close panel">× close</button>
+    <pre class="ascii-art ascii-divider" aria-hidden="true">┄┄┄┄┄┄ · RESEARCH · ┄┄┄┄┄┄</pre>
+    <h2>Research</h2>
+    <div class="project-card">
+      <div class="project-head">
+        <h3><img class="org-logo" src="assets/logos/nma.png" alt="" aria-hidden="true">Neuromatch Academy <span class="mono project-tag">Computational Neuroscience &middot; Project Pod</span></h3>
+        <span class="mono project-stack">Jul 2026 &middot; 128 hrs</span>
+      </div>
+      <ul>
+        <li>A summer computational neuroscience program giving students the opportunity to research open
+          datasets; led a four-student project pod analyzing intracranial (ECoG) recordings from an n-back
+          working-memory task, testing whether broadband high-gamma power (70&ndash;170&nbsp;Hz) tracks
+          memory load</li>
+        <li>Built the team's MNE + FOOOF preprocessing pipeline as primary coder</li>
+        <li>Traced an initial null result to a normalization artifact; after correcting it, found a load
+          effect in 2 of 3 subjects, above-chance multiclass load decoding in all 3 (permutation
+          p&nbsp;&lt;&nbsp;.001), and a load-dependent shift in the aperiodic (1/f) spectral exponent
+          (p&nbsp;&lt;&nbsp;.002)</li>
+        <li>Presented findings to course TAs; prepared results for abstract submission</li>
+      </ul>
+      <a class="project-link mono" href="assets/certs/nma.png" target="_blank" rel="noopener">view certificate ↗</a>
+    </div>
+  </article>
+
+  <article class="panel" id="panel-leadership" data-color="var(--c-leadership)">
+    <button class="panel-close mono" data-action="close" aria-label="Close panel">× close</button>
+    <pre class="ascii-art ascii-divider" aria-hidden="true">┄┄┄┄┄ · LEADERSHIP · ┄┄┄┄┄</pre>
+    <h2>Leadership &amp; Experience</h2>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3><img class="org-logo" src="assets/logos/osc.png" alt="" aria-hidden="true">Vice President <span class="mono project-tag">Open Source Community &middot; VIT-AP</span></h3>
+        <span class="mono project-stack">Oct 2024 &ndash; May 2026</span>
+      </div>
+      <ul><li>Led strategic direction for an 85+ member community across technical and creative tracks;
+        organized 10+ workshops and hackathons, after starting as Events / Track Lead</li></ul>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3>President <span class="mono project-tag">Madhya Bharat Association &middot; VIT-AP</span></h3>
+        <span class="mono project-stack">May 2024 &ndash; May 2026</span>
+      </div>
+      <ul><li>Managed cross-functional teams of 50+ across design, content, and logistics; improved member
+        retention 30% and event attendance 60%</li></ul>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3>
+          <span class="org-logo-group">
+            <img class="org-logo" src="assets/logos/nrityam.png" alt="" aria-hidden="true">
+            <img class="org-logo" src="assets/logos/anchoring.png" alt="" aria-hidden="true">
+            <img class="org-logo" src="assets/logos/gdg.png" alt="" aria-hidden="true">
+          </span>
+          Design Team Lead <span class="mono project-tag">Nrityam, Anchoring Club, GDG on Campus &middot; VIT-AP</span>
+        </h3>
+        <span class="mono project-stack">May 2024 &ndash; May 2025</span>
+      </div>
+      <ul>
+        <li>Led design teams concurrently across 3 student organizations, delivering visual assets for 5+
+          events with audiences of 500+</li>
+        <li>Organized the #GoogleDevs Sprint 2K25 Hackathon (19 Mar 2025) through GDG on Campus VIT-AP, run
+          in collaboration with Google Cloud</li>
+      </ul>
+      <a class="project-link mono" href="assets/certs/gdg.png" target="_blank" rel="noopener">view certificate ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3><img class="org-logo" src="assets/logos/space.png" alt="" aria-hidden="true">Space Tech Intern Trainee <span class="mono project-tag">India Space Lab (&#2349;&#2366;&#2352;&#2340; &#2309;&#2306;&#2340;&#2352;&#2367;&#2325;&#2381;&#2359; &#2358;&#2367;&#2325;&#2381;&#2359;&#2366; &#2309;&#2344;&#2369;&#2360;&#2306;&#2343;&#2366;&#2344; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352;)</span></h3>
+        <span class="mono project-stack">Dec 2024 &ndash; Jan 2025</span>
+      </div>
+      <ul>
+        <li>Trainee internship focused on space technology fundamentals</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="panel" id="panel-resume" data-color="var(--c-resume)">
+    <button class="panel-close mono" data-action="close" aria-label="Close panel">× close</button>
+    <pre class="ascii-art ascii-divider" aria-hidden="true">┄┄┄┄┄┄┄ · RÉSUMÉ · ┄┄┄┄┄┄┄</pre>
+    <h2>Résumé &amp; Contact</h2>
+    <div class="contact-row">
+      <a href="mailto:choconlily@gmail.com" class="contact-link mono">✉ choconlily@gmail.com</a>
+      <a href="https://linkedin.com/in/ciiphersiren" target="_blank" rel="noopener" class="contact-link mono">⚭ linkedin.com/in/ciiphersiren</a>
+      <a href="https://github.com/ciiphersiren" target="_blank" rel="noopener" class="contact-link mono">⌥ github.com/ciiphersiren</a>
+    </div>
+    <a href="assets/resume.pdf" download class="download-btn mono">↓ download résumé (pdf)</a>
+    <div class="pdf-frame-wrap">
+      <iframe class="pdf-frame" src="assets/resume.pdf" title="Reet Mishra résumé preview"></iframe>
+    </div>
+  </article>
+</div>
+
+<footer id="footer" class="mono">
+  <span>designed &amp; built by Reet Mishra</span>
+  <span class="footer-dot">&middot;</span>
+  <span id="clock"></span>
+</footer>
+
+<!-- ============ a small hidden visitor ============ -->
+<div id="easter-egg" aria-hidden="true">
+  <div id="egg-hearts" class="egg-hearts">
+    <img src="assets/img/ascii-full-heart.png" alt="">
+    <img src="assets/img/ascii-full-heart.png" alt="">
+    <img src="assets/img/ascii-full-heart.png" alt="">
+  </div>
+  <button id="egg-cat" class="egg-cat" aria-label="A small cat. It's doing fine. Probably.">
+    <img src="assets/img/ascii-cat.png" alt="">
+  </button>
+</div>
+<div id="egg-dim" aria-hidden="true"></div>
+<img id="egg-dino" class="egg-dino" src="assets/img/ascii-dino.png" alt="" aria-hidden="true">
+<img id="egg-died" class="egg-died" src="assets/img/ascii-you-died!.png" alt="" aria-hidden="true">
+
+<script src="js/starfield.js"></script>
+<script src="js/boot.js"></script>
+<script src="js/solarsystem.js"></script>
+<script src="js/shatter.js"></script>
+<script src="js/easter-egg.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

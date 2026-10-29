@@ -317,6 +317,26 @@ body::before {
   line-height: 1.7;
   margin: 0 0 1.6rem;
 }
+.hero-hi {
+  font-family: var(--font-head);
+  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+  color: var(--text-dim);
+  margin: 0 0 0.2rem;
+}
+.hero-lead {
+  display: block;
+  color: var(--text);
+  font-weight: 500;
+}
+.hero-contact {
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  margin: 0 0 1.6rem;
+}
+.hero-contact a {
+  color: var(--accent);
+  border-bottom: 1px dashed currentColor;
+}
 .hero-hint {
   font-size: 0.75rem;
   color: var(--text-faint);

@@ -42,11 +42,15 @@
    .   ╰─────────────────────────╯    .
         .     *      .    *     .
     </pre>
-    <h1 class="hero-title">Reet Mishra</h1>
-    <p class="hero-sub mono">B.Tech CS (AI/ML) &middot; VIT-AP &middot; Class of 2027</p>
-    <p class="hero-tagline">I like building things I can poke at. A movie recommender that argues with
-      itself, an RL agent learning not to walk into walls, and this summer, a detour into neuroscience:
-      finding signal in noisy brain recordings with Neuromatch Academy.</p>
+    <p class="hero-hi">Hi!</p>
+    <h1 class="hero-title">This is Reet,</h1>
+    <p class="hero-sub mono">a CS (AI/ML) student at VIT-AP &middot; class of 2027</p>
+    <p class="hero-tagline"><span class="hero-lead">Recently,</span>
+      I've been decoding task difficulty from intracranial brain recordings with Neuromatch Academy, and
+      teaching YOLO to count cars in drone footage for an IEEE paper with my team. Prior to this, I built
+      a webcam mirror that rewrites your body in your own words, a movie recommender where five algorithms argue side by side, an RL playground that runs in your
+      browser, and an image-to-ASCII converter in plain MATLAB.</p>
+    <p class="hero-contact">contact <a href="mailto:choconlily@gmail.com" class="mono">choconlily@gmail.com</a> for further collab</p>
     <p class="hero-hint mono">◂ click a planet to explore its orbit ▸</p>
   </section>
 
@@ -172,6 +176,53 @@
 
     <div class="project-card">
       <div class="project-head">
+        <h3>what are you made of? <span class="mono project-tag">Webcam Mirror &middot; Browser Art Piece</span></h3>
+        <span class="mono project-stack">JS &middot; MediaPipe &middot; WebAssembly &middot; Canvas</span>
+      </div>
+      <ul>
+        <li>Asks what you're made of, then rewrites your body, live from the webcam, as your own words,
+          flowing through your silhouette and tinted with your colors; press <em>not human</em> and you fade
+          out, replaced by the room behind you</li>
+        <li>MediaPipe face detection and person segmentation run in the browser via WebAssembly; the frame
+          becomes an ~80&times;36 grid whose glyphs are pre-drawn once, then stamped and tinted on the GPU at
+          20&ndash;50 fps</li>
+        <li>Splits text into grapheme clusters (&ldquo;कि&rdquo;, &ldquo;爱&rdquo;, 👩&zwj;🚀), so any script
+          lands one glyph per cell; disappearing works by memorizing the background from every uncovered
+          part of the frame and painting it back over you</li>
+        <li>No server, no uploads, no analytics, no build step; share links carry your answer to the next
+          person</li>
+      </ul>
+      <div class="project-links">
+        <a class="project-link mono" href="https://ciiphersiren.github.io/what-are-you-made-of/" target="_blank" rel="noopener">try it ↗</a>
+        <a class="project-link mono" href="https://github.com/ciiphersiren/what-are-you-made-of" target="_blank" rel="noopener">view on GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3>matlab-ascii-art <span class="mono project-tag">Image &rarr; ASCII art in base MATLAB</span></h3>
+        <span class="mono project-stack">MATLAB &middot; Vectorization &middot; Unit Testing &middot; Image Processing</span>
+      </div>
+      <ul>
+        <li>Grayscale or per-character color output, Unicode charsets (░▒▓█), tone controls, export to text,
+          PNG or HTML, and an interactive app with live preview that uploads images even in MATLAB Online</li>
+        <li>No toolboxes: reimplemented resizing, grayscale (exact Rec. 601 weights), histogram equalization
+          and unsharp-mask sharpening by hand</li>
+        <li>Block averaging vectorized with separable cumulative sums, so uneven block sizes need no
+          cropping; 2.5&ndash;6&times; faster than a loop up to 1024&sup2;, tied from 2048&sup2; once both
+          become memory-bound</li>
+        <li>80 matlab.unittest tests &middot; 97.9% line coverage &middot; CI on R2023a and latest, failing
+          below 95%</li>
+      </ul>
+      <div class="project-links">
+        <a class="project-link mono" href="https://www.mathworks.com/matlabcentral/fileexchange/185076-ascii-art-generator" target="_blank" rel="noopener">File Exchange ↗</a>
+        <a class="project-link mono" href="https://matlab.mathworks.com/open/github/v1?repo=ciiphersiren/matlab-ascii-art" target="_blank" rel="noopener">open in MATLAB Online ↗</a>
+        <a class="project-link mono" href="https://github.com/ciiphersiren/matlab-ascii-art" target="_blank" rel="noopener">view on GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
         <h3>Recomme To Me <span class="mono project-tag">Movie Recommender System</span></h3>
         <span class="mono project-stack">Python &middot; Flask &middot; scikit-learn &middot; JS</span>
       </div>
@@ -226,24 +277,35 @@
     <button class="panel-close mono" data-action="close" aria-label="Close panel">× close</button>
     <pre class="ascii-art ascii-divider" aria-hidden="true">┄┄┄┄┄┄ · RESEARCH · ┄┄┄┄┄┄</pre>
     <h2>Research</h2>
+    <p class="cert-note mono"><span class="badge mono">in progress</span> code isn't public yet</p>
+
     <div class="project-card">
       <div class="project-head">
-        <h3><img class="org-logo" src="assets/logos/nma.png" alt="" aria-hidden="true">Neuromatch Academy <span class="mono project-tag">Computational Neuroscience &middot; Project Pod</span></h3>
+        <h3><img class="org-logo" src="assets/logos/nma.png" alt="" aria-hidden="true">Chasing Gamma <span class="mono project-tag">Neuromatch Academy 2026 &middot; Computational Neuroscience</span></h3>
         <span class="mono project-stack">Jul 2026 &middot; 128 hrs</span>
       </div>
       <ul>
-        <li>A summer computational neuroscience program giving students the opportunity to research open
-          datasets; led a four-student project pod analyzing intracranial (ECoG) recordings from an n-back
-          working-memory task, testing whether broadband high-gamma power (70&ndash;170&nbsp;Hz) tracks
-          memory load</li>
-        <li>Built the team's MNE + FOOOF preprocessing pipeline as primary coder</li>
-        <li>Traced an initial null result to a normalization artifact; after correcting it, found a load
-          effect in 2 of 3 subjects, above-chance multiclass load decoding in all 3 (permutation
-          p&nbsp;&lt;&nbsp;.001), and a load-dependent shift in the aperiodic (1/f) spectral exponent
-          (p&nbsp;&lt;&nbsp;.002)</li>
-        <li>Presented findings to course TAs; prepared results for abstract submission</li>
+        <li>Decoding task difficulty from intracranial brain recordings (ECoG); primary coder in a
+          3-person team</li>
+        <li>Built the preprocessing pipeline in MNE, per-channel and region-level stats with FDR
+          correction, spectral parameterization, and a multiclass classifier</li>
+        <li>The first result was null, and I traced it to a normalization bug: the baseline window
+          overlapped the signal we were measuring. After fixing it, the effect held in 2 of 3 subjects, and
+          the classifier beat chance for all 3 (permutation p&nbsp;&lt;&nbsp;.001)</li>
       </ul>
       <a class="project-link mono" href="assets/certs/nma.png" target="_blank" rel="noopener">view certificate ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <h3>Prompt-based detection on drone imagery <span class="mono project-tag">IEEE conference paper in progress</span></h3>
+        <span class="mono project-stack">YOLO26 &middot; SAHI &middot; YOLOE</span>
+      </div>
+      <ul>
+        <li>Detect small objects in UAV images with YOLO26 and SAHI sliced inference, save the detections,
+          and answer prompts over them (&ldquo;how many cars?&rdquo;)</li>
+        <li>YOLOE handles open-vocabulary prompts in the web app</li>
+      </ul>
     </div>
   </article>
 
